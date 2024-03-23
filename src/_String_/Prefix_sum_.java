@@ -1,3 +1,5 @@
+package _String_;
+
 import java.util.Arrays;
 
 
@@ -11,8 +13,9 @@ public class Prefix_sum_ {
         System.out.println(prefixSum__Que(y, 0, 2));
 
         int[][] k = {{1, 1, 1}, {1, 1, 1}, {1, 1, 1}};
-        print2D(k);
-        preFixSum2D(k);
+       // print2D(k);
+        //preFixSum2D(k);
+        preFixSum2DArray(k);
     }
 
     //prefix sum:-
@@ -93,22 +96,46 @@ public class Prefix_sum_ {
         }
         print2D(a);
     }
-/*
-    //inplace Prefix Sum 2DArray:-
-    public static void preFixSum2D(int a[][]) {
-        int sum = 0;
-        for (int i = 0; i < a.length; i++) {
-            for (int j = 0; j < a[i].length; j++) {
-                sum = sum + a[i][j];
+
+
+   // prefix sum 2D Aproch:-
+    //  1> Row wise prefix sum of individual 1D array of  2D
+    //  2> Collumn wise prefix sum individual 1D array of  2D
+    //  3> Both in place;
+
+    //Collumn wise predix sum:-
+
+    public static void preSumOnColumn_(int a[][]) {
+        for (int j = 0; j < a[0].length; j++) { // Iterate over columns
+            int sum = 0;
+            for (int i = 0; i < a.length; i++) { // Iterate over rows
+                sum += a[i][j];
                 a[i][j] = sum;
             }
-            System.out.println();
-        }
+        }}
+
+
+    public static void preFixSum2DArray(int a[][]){
+       // int pre[][]=new int [a.length][a[0].length];
+        System.out.println("preFixSum2DArray:-");
         print2D(a);
+
+        //1> Row wise prefix sum of individual 1D array of  2D
+        for(int i=0;i<a.length;i++){
+            prefixSumInPlace(a[i]);
+        }
+        System.out.println("Row wise:-");
+        print2D(a);
+
+
+        //2> column wise prefix sum of individual 1D array of  2D
+        preSumOnColumn_(a);
+        System.out.println("collumn wise:-");
+        print2D(a);
+
+
     }
 
-
- */
 
 
 
